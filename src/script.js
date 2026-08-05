@@ -18,81 +18,39 @@ function updateSideImages(index) {
     if (rightImages[index]) rightImages[index].classList.add('active');
 }
 
-function isMobileLayout() {
-    return window.innerWidth <= 1000;
-}
-
 function handleScroll() {
     var scrollArea = document.getElementById('blog-scroll-area');
     var posts = document.querySelectorAll('.blog-post');
     if (!scrollArea || posts.length === 0) return;
 
-    var mobile = isMobileLayout();
-
-    if (mobile) {
-        // On mobile, the page itself scrolls, not the scroll area
-        var docEl = document.documentElement;
-        var scrollTop = window.pageYOffset || docEl.scrollTop;
-        var scrollHeight = docEl.scrollHeight;
-        var clientHeight = docEl.clientHeight;
-
-        if (scrollTop + clientHeight >= scrollHeight - 30) {
-            updateSideImages(posts.length - 1);
-            return;
-        }
-
-        if (scrollTop <= 10) {
-            updateSideImages(0);
-            return;
-        }
-
-        var viewportCenter = clientHeight / 2;
-        var closestIndex = 0;
-        var minDistance = Infinity;
-
-        for (var i = 0; i < posts.length; i++) {
-            var rect = posts[i].getBoundingClientRect();
-            var postCenter = rect.top + rect.height / 2;
-            var distance = Math.abs(postCenter - viewportCenter);
-
-            if (distance < minDistance) {
-                minDistance = distance;
-                closestIndex = parseInt(posts[i].getAttribute('data-index'), 10);
-            }
-        }
-
-        updateSideImages(closestIndex);
-    } else {
-        // Desktop: scroll inside the container
-        if (scrollArea.scrollTop + scrollArea.clientHeight >= scrollArea.scrollHeight - 30) {
-            updateSideImages(posts.length - 1);
-            return;
-        }
-
-        if (scrollArea.scrollTop <= 10) {
-            updateSideImages(0);
-            return;
-        }
-
-        var scrollAreaRect = scrollArea.getBoundingClientRect();
-        var scrollAreaCenter = scrollAreaRect.top + scrollAreaRect.height / 2;
-
-        var closestIndex = 0;
-        var minDistance = Infinity;
-
-        for (var i = 0; i < posts.length; i++) {
-            var rect = posts[i].getBoundingClientRect();
-            var postCenter = rect.top + rect.height / 2;
-            var distance = Math.abs(postCenter - scrollAreaCenter);
-
-            if (distance < minDistance) {
-                minDistance = distance;
-                closestIndex = parseInt(posts[i].getAttribute('data-index'), 10);
-            }
-        }
-
-        updateSideImages(closestIndex);
+    if (scrollArea.scrollTop + scrollArea.clientHeight >= scrollArea.scrollHeight - 30) {
+        updateSideImages(posts.length - 1);
+        return;
     }
+
+    if (scrollArea.scrollTop <= 10) {
+        updateSideImages(0);
+        return;
+    }
+
+    var scrollAreaRect = scrollArea.getBoundingClientRect();
+    var scrollAreaCenter = scrollAreaRect.top + scrollAreaRect.height / 2;
+
+    var closestIndex = 0;
+    var minDistance = Infinity;
+
+    for (var i = 0; i < posts.length; i++) {
+        var rect = posts[i].getBoundingClientRect();
+        var postCenter = rect.top + rect.height / 2;
+        var distance = Math.abs(postCenter - scrollAreaCenter);
+
+        if (distance < minDistance) {
+            minDistance = distance;
+            closestIndex = parseInt(posts[i].getAttribute('data-index'), 10);
+        }
+    }
+
+    updateSideImages(closestIndex);
 }
 
 function renderBlog() {
@@ -162,32 +120,19 @@ function renderBlog() {
     var topBtn = document.getElementById('back-to-top-btn');
     if (topBtn) {
         topBtn.addEventListener('click', function () {
-            if (isMobileLayout()) {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                var scrollArea = document.getElementById('blog-scroll-area');
-                if (scrollArea) {
-                    scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
-                }
+            var scrollArea = document.getElementById('blog-scroll-area');
+            if (scrollArea) {
+                scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
     }
 
     currentActiveIndex = 0;
 
-    function bindScrollListener() {
-        var scrollArea = document.getElementById('blog-scroll-area');
-        if (isMobileLayout()) {
-            if (scrollArea) scrollArea.removeEventListener('scroll', handleScroll);
-            window.addEventListener('scroll', handleScroll, { passive: true });
-        } else {
-            window.removeEventListener('scroll', handleScroll);
-            if (scrollArea) scrollArea.addEventListener('scroll', handleScroll, { passive: true });
-        }
+    var scrollArea = document.getElementById('blog-scroll-area');
+    if (scrollArea) {
+        scrollArea.addEventListener('scroll', handleScroll, { passive: true });
     }
-
-    bindScrollListener();
-    window.addEventListener('resize', bindScrollListener);
 }
 
 document.addEventListener('DOMContentLoaded', renderBlog);
