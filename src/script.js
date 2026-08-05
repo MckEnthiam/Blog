@@ -104,10 +104,6 @@ function renderBlog() {
         html += '  </div>';
         html += '  <div class="blog-post-content">' + post.content + '</div>';
         html += '</article>';
-
-        if (i < blogPosts.length - 1) {
-            html += '<div class="blog-post-separator">· · ·</div>';
-        }
     }
 
     html += '<div class="back-to-top-wrapper">';
