@@ -266,6 +266,7 @@ select {
         font-size: 18px;
         background-image: url("../assets/Images/bookup.jpg");
         background-size: cover;
+        margin-bottom: -20px;
     }
 
     #hero-icon {
@@ -318,17 +319,6 @@ select {
 
     .blog-post-content {
         font-size: 0.85em;
-    }
-
-    input {
-        display: block;
-        margin: 0 auto 10px auto;
-    }
-
-    nav {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
     }
 
     .blog-scroll-bottom-spacer {
