@@ -27,7 +27,8 @@
 }
 
 header {
-
+    background-image: url("../assets/Images/book.jpg");
+    background-size: cover;
     padding: 20px;
     text-align: center;
     font-size: 24px;
@@ -256,11 +257,8 @@ select {
     }
 
     body {
-        font-family: 'Maple Mono', monospace;
-        margin: 0;
-        padding: 0;
+        background-image: none !important;
         background-color: #e2d197;
-        background-size: cover;
     }
 
     header {
@@ -286,8 +284,7 @@ select {
 
     input {
         display: block;
-        margin: 0 auto;
-        margin-bottom: 10px;
+        margin: 0 auto 10px auto;
     }
 
     nav {
