@@ -60,7 +60,6 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    background-image: url("../assets/Images/book.jpg");
     background-size: cover;
 }
 
@@ -108,7 +107,6 @@ select {
     display: none;
 }
 
-/* Colonnes latérales pour les images */
 #side-left,
 #side-right {
     flex: 0 0 200px;
@@ -124,7 +122,6 @@ select {
     max-height: 400px;
     object-fit: contain;
     border-radius: 4px;
-    /* Ombrage léger type polaroid */
     filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.25));
     transition: opacity 0.4s ease, transform 0.3s ease;
     opacity: 0;
