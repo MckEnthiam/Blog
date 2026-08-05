@@ -251,7 +251,7 @@ select {
 
 @media (max-width: 1000px) {
     #blog-layout {
-        flex-direction: column;
+        flex-direction: center;
     }
 
     body {
