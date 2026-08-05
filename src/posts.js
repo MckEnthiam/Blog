@@ -1,30 +1,24 @@
 const blogPosts = [
-    {
-        title: "Mon article",
+        {
+        title: "Mon 1er domaine",
         date: "05/08/2026",
         content: `
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-            dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-            fugiat nulla pariatur.</p>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa 
-            qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis 
-            unde omnis iste natus error sit voluptatem accusantium doloremque 
-            laudantium.</p>
+            <p>
+                Dépuis que je suis petit j'ai toujours voulu avoir mon propre domaine, c'est un rêve que j'ai depuis longtemps ! j'ai maintenant le domaine ethiam.word, il etait pas cher seulement 1.18$, avec les frais, un bon achat
+            </p>
+        `,
+        category: "Journal",
+        imageLeft: "assets/Images/OIP.png",
+        imageRight: "assets/Images/public.png"
+    },
+    {
+        title: "Mon blog",
+        date: "05/08/2026",
+        content: `
+            <p>J'ai passer la majorité de ma journée à créer ce blog, c'est interessant parceque ça fait un moment que je n'avait pas fini un projet entier sans utilisation d'un agent, ça fait du bien de reprendre la main.</p>
         `,
         category: "Journal",
         imageLeft: "assets/Images/HD.png",
         imageRight: "assets/Images/jojo5.png"
     },
-    {
-        title: "Lorem Ipsum",
-        date: "05/08/2026",
-        content: `
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        `,
-        category: "Test",
-        imageLeft: "assets/Images/pourtestleft.png",
-        imageRight: "assets/Images/pourtestright.png"
-    }
 ]
