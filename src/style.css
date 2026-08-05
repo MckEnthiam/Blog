@@ -59,6 +59,7 @@ body {
     font-family: 'Maple Mono', monospace;
     margin: 0;
     padding: 0;
+    background-image: url("../assets/Images/book.jpg");
     background-color: #f4f4f4;
     background-size: cover;
 }
@@ -248,14 +249,18 @@ select {
     font-size: 1.1em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     #blog-layout {
         flex-direction: column;
     }
 
     body {
-        background-image: none !important;
-        background-color: #e2d197;
+    background-image: url("../assets/Images/page.jpg");
+    background-color: #e2d197;
+    font-family: 'Maple Mono', monospace;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
     }
 
     header {
