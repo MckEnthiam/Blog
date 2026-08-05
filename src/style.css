@@ -265,6 +265,8 @@ select {
 
     header {
         font-size: 18px;
+        background-image: url("../assets/Images/bookup.jpg");
+        background-size: cover;
     }
 
     #hero-icon {
